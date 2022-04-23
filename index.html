@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GOOGLE FONTS  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Henny+Penny&family=Kaushan+Script&family=Merienda&family=Orbitron:wght@600&family=Quantico:wght@700&family=Rancho&family=Saira:ital@1&display=swap" rel="stylesheet">
+    <!-- CSS  -->
+    <link rel="stylesheet" href="css/main style.css">
+    <!-- RESPONSIVE CSS  -->
+    <link rel="stylesheet" media="screen and (max-width:960px)" href="css/mobile.css">
+    <!--FONTAWESOME ICONS  -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- JQUERY CDN -->
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+    <script>
+        function chk(){
+            var email = document.getElementById('email').value;
+            var dataString = 'email='+email;
+            $.ajax({
+                type:"POST",
+                url:"database.php",
+                data: dataString,
+                cache
+            })
+            return false;
+        }
+    </script>
+
+    <title>SPARK QUEST 3.0</title>
+</head>
+<body onload="loaderFun()">
+    <div id="loader">
+        <div class="preloader">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <p>LOADING...</p>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        /*  setTimeout(function(){
+              $('.loader_bg').fadeToggle();
+          }, 1500);*/
+        var preloader = document.getElementById('loader');
+        setTimeout(function loaderFun() {
+            preloader.style.display = 'none';
+        }, 5000);
+
+    </script>
+   <section >
+   </section>
+   <script>
+       function stars(){
+           const count = 200;
+           const section = document.querySelector('section');
+           var m = 0;
+
+           while(m < count){
+               const star = document.createElement('m');
+               const x = Math.floor(Math.random() * window.innerWidth)
+               const y = Math.floor(Math.random() * window.innerHeight)
+
+               const size = Math.random() * 4;
+               star.style.left = x+'px';
+               star.style.top = y+'px';
+               star.style.width =1+size+'px';
+               star.style.height =1+size+'px';
+
+               const duration = Math.random() * 2;
+
+               star.style.animationDuration = 2+duration+'s';
+               star.style.animationDelay = duration+'s';
+
+               section.appendChild(star);
+               m++
+           }
+       }
+       stars();
+   </script>
+
+   <!-- BODY PART  -->
+
+    <header id="container">
+
+            <!-- HEADING SECTION  -->
+
+        <div class="heading">
+            <img src="image/ti.webp" alt="" class="col-logo">
+            <h3 class="col-name">Techno India Hooghly</h3>
+            <h3 class="present">Presents</h3>
+            <img src="image/logo_hr.png" alt="" class="sq-logo">
+            <h3 class="power">powered by <span>CYBERTRONIX</span></h3>
+
+        </div>
+
+        <!-- COMING SOON SECTION  -->
+
+        <div class="coming">
+            <h1><span>COMING</span>  SOON</h1>
+        </div>
+
+        <!-- EMAIL SECTION  -->
+
+        <div class="email">
+            <form action="database.php" method="POST">
+            <input type="text" class="inputs " id="email" name="email" placeholder="Enter Email for Updates" required autocomplete="off">
+
+            <!-- <input type="submit" id="submit" class="btn" name="subscribe" value="Register"> -->
+            <button type="submit" id ="submit" class="btn" name="subscribe" onclick="return chk()">Register</button>
+            </form>
+        </div> 
+    </header>
+<!-- SUCCESS POPUP  -->
+<script>
+    function popUp(){
+        swal("Success!","You have successfully registered!");
+    }
+</script>
+  
+
+    <!-- FOOTER SECTION  -->
+
+    <footer> 
+         <!-- SOCIAL LINKS  -->
+        <div class="wrapper">
+            <ul>
+                <li><a href="https://www.facebook.com/TIHSparkQuest/"><i class="fab fa-facebook-f icons"></i></a></li>
+                <li><a href="https://twitter.com/TIHSparkquest?s=20"><i class="fab fa-twitter icons"></i></a></li>
+                <li><a href="https://instagram.com/sparkquest._?utm_medium=copy_link"><i class="fab fa-instagram icons"></i></a> </li>
+                <li><a href="https://youtube.com/channel/UCpID3vBWRrpgq2wzFEqZhwg"><i class="fab fa-youtube icons"></i></a></li>
+            </ul>
+        </div>
+        <!-- T&C and CANCELLATION & REFUND -->
+        <div class="conditions" >
+            <div class="links">
+                <a href="#"><button>Terms & Conditions</button></a>
+                <p class="footer">Copyright &copy; <span>CYBERTRONIX | TECHNO INDIA HOOGHLY</span> </p>
+                <a href="T&C.html"><button>Cancellation/Refund Policy</button></a>
+            </div>
+    </footer>
+</body>
+
+</html>
+
+
+
+
